@@ -8,6 +8,29 @@ IF [%1] == [] (
 	ECHO apppool = %apppool%
 )
 
+IF [%2] == [] (
+	SET build=prod
+) ELSE (
+    SET build=%2
+)
+ECHO build = %build%
+
+ECHO DEPLOYING CLIENT
+
+call npm install
+if %ERRORLEVEL% NEQ 0 (
+	ECHO npm install failed
+	GOTO :error
+)
+
+call npm run %build%
+if %ERRORLEVEL% NEQ 0 (
+	ECHO npm build failed
+	GOTO :error
+)
+
+
+
 ECHO DEPLOYING API
 
 dotnet restore
