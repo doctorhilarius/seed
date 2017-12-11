@@ -3,8 +3,10 @@ using System.IO;
 using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
+using Seed.Host.Exceptions;
 using Serilog;
 using Serilog.Events;
+using Serilog.Sinks.Email;
 
 namespace Seed {
 	public class Program {
@@ -19,9 +21,19 @@ namespace Seed {
 			// application configuration and startup errors are logged
 			// unfortunately the logger requires configuration so we will take the 
 			// hit of loading the config twice but at this time the overhead is minimal
-			Log.Logger = CreateLogger();
+			Log.Logger = CreateLogger(AddConfig(new ConfigurationBuilder()).Build());
 
-			BuildWebHost(args).Run();
+			try {
+				Log.Information("Building Web Host");
+				IWebHost host = BuildWebHost(args);
+				Log.Information("Starting Web Host");
+				host.Run();
+
+			} catch (Exception error) {
+				Log.Fatal(error, "Web Host terminated unexpectedly");
+			} finally {
+				Log.CloseAndFlush();
+			}
 		}
 
 		/// <summary>
@@ -42,7 +54,7 @@ namespace Seed {
 		/// <summary>
 		/// Creates the logger for the application
 		/// </summary>
-		private static ILogger CreateLogger() {
+		private static ILogger CreateLogger(IConfigurationRoot configuration) {
 
 			var loggerConfig = new LoggerConfiguration()
 				.MinimumLevel.Debug()
@@ -54,6 +66,18 @@ namespace Seed {
 					outputTemplate: GetLoggingTemplate(),
 					rollingInterval: RollingInterval.Day
 				));
+
+			ExceptionOptions errorSettings = configuration.GetSection("exceptions").Get<ExceptionOptions>();
+
+			if (String.IsNullOrEmpty(errorSettings.MailTo) == false) {
+				EmailConnectionInfo emailInfo = new EmailConnectionInfo {
+					EmailSubject = $"GameFly Retail UI: Unhandled Exception occurred on machine {Environment.MachineName}",
+					MailServer = errorSettings.SmtpServer,
+					FromEmail = errorSettings.MailFrom,
+					ToEmail = errorSettings.MailTo
+				};
+				loggerConfig.WriteTo.Email(emailInfo, GetLoggingTemplate(), LogEventLevel.Error);
+			}
 
 #if DEBUG
 			//we will only use the console logger when debugging

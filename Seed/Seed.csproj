@@ -5,6 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Folder Include="Host\Environment\" />
     <Folder Include="wwwroot\" />
   </ItemGroup>
 
