@@ -1,8 +1,9 @@
-﻿using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Seed.Host;
+using Seed.Host.Exceptions;
 
 namespace Seed {
 	public class Startup {
@@ -29,7 +30,9 @@ namespace Seed {
 				app.UseDeveloperExceptionPage();
 			}
 
-			app.UseMvc();
+		  app.UseExceptionHandling(this.Configuration.GetSection("exceptions").Get<ExceptionOptions>());
+
+      app.UseMvc();
 		}
 
 	}
