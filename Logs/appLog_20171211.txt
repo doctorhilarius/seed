@@ -1,0 +1,8 @@
+[09:45:45 INF] [] [Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager] User profile is available. Using 'C:\Users\bsouza\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+[09:45:46 INF] [0HLA0NS13B4SL:00000001] [Microsoft.AspNetCore.Hosting.Internal.WebHost] Request starting HTTP/1.1 GET http://localhost:64637/api/values  
+[09:45:46 INF] [0HLA0NS13B4SL:00000001] [Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker] Executing action method Seed.Controllers.ValuesController.Get (Seed) with arguments (null) - ModelState is "Valid"
+[09:45:46 INF] [0HLA0NS13B4SL:00000001] [Microsoft.AspNetCore.Mvc.Internal.ObjectResultExecutor] Executing ObjectResult, writing value Microsoft.AspNetCore.Mvc.ControllerContext.
+[09:45:46 INF] [0HLA0NS13B4SL:00000001] [Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker] Executed action Seed.Controllers.ValuesController.Get (Seed) in 102.7211ms
+[09:45:46 INF] [0HLA0NS13B4SL:00000001] [Microsoft.AspNetCore.Hosting.Internal.WebHost] Request finished in 221.2089ms 200 application/json; charset=utf-8
+[09:45:46 INF] [0HLA0NS13B4SL:00000002] [Microsoft.AspNetCore.Hosting.Internal.WebHost] Request starting HTTP/1.1 GET http://localhost:64637/favicon.ico  
+[09:45:46 INF] [0HLA0NS13B4SL:00000002] [Microsoft.AspNetCore.Hosting.Internal.WebHost] Request finished in 1.2953ms 404 
