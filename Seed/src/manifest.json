@@ -1,0 +1,9 @@
+{
+    "short_name": "SeedProject",
+    "name": ".NET Core 2.0.3 / Angular 5.1.0 Seed Project",
+    "theme_color": "#FFFFFF",
+    "background_color": "#a6a6a6",
+    "start_url": "/",
+    "display": "standalone",
+    "orientation": "portrait"
+}
