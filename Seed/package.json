@@ -10,7 +10,9 @@
     "e2e": "ng e2e",
     "lint": "tslint \"src/**/*.ts\"",
     "dev": "node --max_old_space_size=4096 ./node_modules/@angular/cli/bin/ng build --aot -t=production -e=dev",
-    "prod": "node --max_old_space_size=4096 ./node_modules/@angular/cli/bin/ng build --aot --build-optimizer -t=production -e=prod -vc=true -cc=false"
+    "prod": "node --max_old_space_size=4096 ./node_modules/@angular/cli/bin/ng build --aot --build-optimizer -t=production -e=prod -vc=true -cc=false && npm run ngsw-worker",
+    "ngsw-worker": "copy .\\node_modules\\@angular\\service-worker\\ngsw-worker.js .\\wwwroot\\ngsw-worker.js /Y && npm run ngsw-config",
+    "ngsw-config": "node_modules/.bin/ngsw-config wwwroot ./src/ngsw-config.json"
   },
   "private": true,
   "dependencies": {
