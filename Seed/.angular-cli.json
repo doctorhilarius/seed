@@ -6,11 +6,13 @@
   "apps": [
     {
       "root": "src",
-      "outDir": "wwwroot",
+      "outDir": "dist",
       "assets": [
         "assets",
         "favicon.ico",
-        "manifest.json"
+        "manifest.json",
+        "ngsw-worker.js",
+        "ngsw.json"
       ],
       "index": "index.html",
       "main": "main.ts",

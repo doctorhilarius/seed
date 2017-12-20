@@ -3,3 +3,11 @@
 DeployPackage/
 Logs/
 *.user
+Seed/ssl/server.key
+Seed/ssl/rootCA.key
+Seed/ssl/rootCA.pem
+Seed/ssl/rootCA.srl
+Seed/ssl/server.crt
+Seed/ssl/server.csr
+Seed/src/ngsw-worker.js
+Seed/src/ngsw.json

@@ -1,5 +1,5 @@
 {
-  "name": "rjbloke",
+  "name": "www.seed.com",
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
@@ -9,10 +9,13 @@
     "test": "ng test",
     "e2e": "ng e2e",
     "lint": "tslint \"src/**/*.ts\"",
+    "local-ssl": "npm run local-ngsw-worker && ng s --port 44301 --ssl true",
+    "local-ngsw-worker": "copy .\\node_modules\\@angular\\service-worker\\ngsw-worker.js .\\src\\ngsw-worker.js /Y && npm run local-ngsw-config",
+    "local-ngsw-config": "node_modules/.bin/ngsw-config src ./src/ngsw-config.json",
     "dev": "node --max_old_space_size=4096 ./node_modules/@angular/cli/bin/ng build --aot -t=production -e=dev",
-    "prod": "node --max_old_space_size=4096 ./node_modules/@angular/cli/bin/ng build --aot --build-optimizer -t=production -e=prod -vc=true -cc=false && npm run ngsw-worker",
-    "ngsw-worker": "copy .\\node_modules\\@angular\\service-worker\\ngsw-worker.js .\\wwwroot\\ngsw-worker.js /Y && npm run ngsw-config",
-    "ngsw-config": "node_modules/.bin/ngsw-config wwwroot ./src/ngsw-config.json"
+    "prod": "node --max_old_space_size=4096 ./node_modules/@angular/cli/bin/ng build --aot --build-optimizer -t=production -e=prod -vc=true -cc=false && npm run prod-ngsw-worker",
+    "prod-ngsw-worker": "copy .\\node_modules\\@angular\\service-worker\\ngsw-worker.js .\\wwwroot\\ngsw-worker.js /Y && npm run prod-ngsw-config",
+    "prod-ngsw-config": "node_modules/.bin/ngsw-config wwwroot ./src/ngsw-config.json"
   },
   "private": true,
   "dependencies": {
