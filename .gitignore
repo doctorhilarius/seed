@@ -2,6 +2,7 @@
 \.vs
 DeployPackage/
 Logs/
+Packages/
 *.user
 Seed/ssl/server.key
 Seed/ssl/rootCA.key
@@ -9,5 +10,13 @@ Seed/ssl/rootCA.pem
 Seed/ssl/rootCA.srl
 Seed/ssl/server.crt
 Seed/ssl/server.csr
+Seed/ssl/seed.key
+Seed/ssl/seedRootCA.key
+Seed/ssl/seedRootCA.pem
+Seed/ssl/seedRootCA.srl
+Seed/ssl/seed.crt
+Seed/ssl/seed.csr
+Seed/ssl/seed.pfx
 Seed/src/ngsw-worker.js
 Seed/src/ngsw.json
+

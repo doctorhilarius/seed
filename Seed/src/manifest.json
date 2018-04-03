@@ -1,9 +1,21 @@
 {
-    "short_name": "SeedProject",
-    "name": ".NET Core 2.0.3 / Angular 5.1.0 Seed Project",
+    "short_name": "RousePortal",
+    "name": "Rouse Portal POC using .NET Core 2.0.5 / Angular 5.2.3",
     "theme_color": "#FFFFFF",
     "background_color": "#a6a6a6",
     "start_url": "/",
     "display": "standalone",
-    "orientation": "portrait"
+    "orientation": "portrait",
+    "icons": [
+        {
+            "src": "assets/shared/rouseservices_logo_192x192.jpg",
+            "sizes": "192x192",
+            "type": "image/jpeg"
+        },
+        {
+            "src": "assets/shared/rouseservices_logo_512x512.jpg",
+            "sizes": "512x512",
+            "type": "image/jpeg"
+        }
+    ]
 }

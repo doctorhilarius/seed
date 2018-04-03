@@ -18,9 +18,9 @@ namespace Seed {
         public static void Main(string[] args) {
 
             // Configure logging before anything so that we can ensure that
-            // application configuration and startup errors are logged
-            // unfortunately the logger requires configuration so we will take the 
-            // hit of loading the config twice but at this time the overhead is minimal
+            // application configuration and startup errors are logged;
+            // Unfortunately, the logger requires configuration later, so we take the 
+            // hit of loading the config twice, but at this time the overhead is minimal.
             Log.Logger = CreateLogger(AddConfig(new ConfigurationBuilder()).Build());
 
             try {
@@ -71,7 +71,7 @@ namespace Seed {
 
             if (String.IsNullOrEmpty(errorSettings.MailTo) == false) {
                 EmailConnectionInfo emailInfo = new EmailConnectionInfo {
-                    EmailSubject = $"GameFly Retail UI: Unhandled Exception occurred on machine {Environment.MachineName}",
+                    EmailSubject = $"Seed Project: Unhandled Exception occurred on machine {Environment.MachineName}",
                     MailServer = errorSettings.SmtpServer,
                     FromEmail = errorSettings.MailFrom,
                     ToEmail = errorSettings.MailTo
