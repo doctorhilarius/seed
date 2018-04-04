@@ -1,6 +1,6 @@
 {
-    "short_name": "RousePortal",
-    "name": "Rouse Portal POC using .NET Core 2.0.5 / Angular 5.2.3",
+    "short_name": "RouseReports",
+    "name": "Rouse Reports POC using .NET Core 2.0.5 / Angular 5.2.3",
     "theme_color": "#FFFFFF",
     "background_color": "#a6a6a6",
     "start_url": "/",
